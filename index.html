@@ -8,15 +8,13 @@
     </head>
     <body>
         <nav>
-            <h1><a href="index.html">NOMBRE APELLIDO</a></h1>
+            <h1><a href="index.html">EMIL GATICA</a></h1>
             <select onchange="location = this.value;">
                 <option value="index.html" selected>INDEX</option>
                 <option value="astrology.html">ASTROLOGY</option>
                 <option value="astronomy.html">ASTRONOMY</option>
                 <option value="earthquakes.html">EARTHQUAKES</option>
                 <option value="weather.html">WEATHER</option>
-                <option value="extra.html">*EXTRA</option>
-                <option value="fixing.html">**FIXING</option>
             </select>
         </nav>
         <section style="min-height: 80vh">
@@ -27,9 +25,15 @@
             <a href="https://github.com/profesorfaco/dno037-2023-2/tree/main/clase-07">20 de septiembre, 2023</a>
         </footer>
         <script>
-            const datos = {motivo:"Como es habitual, aquí irá el motivo por el que siguen en el OPR, pero tendrán que buscar la manera de resolverlo con una consulta al JSON que prepararán como curso, partiendo en la página <a href='extra.html'>*EXTRA</a>"}
-            document.querySelector("#loader").style.display = "none";
-            document.querySelector("blockquote").innerHTML = `${datos.motivo}`;
+            async function estudiantes() {
+                const data = await fetch("https://raw.githubusercontent.com/profesorfaco/dno037-2023-2/main/clase-07/_curso.json");
+                const datos = await data.json();
+
+            document.querySelector("blockquote").innerHTML = `${datos[18].motivo}` ;
+            }
+
+            estudiantes().catch((error) => console.error(error));
+
         </script>
     </body>
 </html>
